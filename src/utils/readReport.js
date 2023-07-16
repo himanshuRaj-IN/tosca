@@ -24,12 +24,11 @@ function getFilePath() {
  * @param {string} filePath take file path
  * @returns {Array<string>} Array of String of Content
  */
-
-function getRawTextDataOfPDF(filePath){
+function getRawTextDataOfPDF(filePath) {
     return new Promise((resolve, reject) => {
 
-        const pdfFile  = fs.readFileSync(filePath)
-        pdfParse(pdfFile).then((data)=>{  
+        const pdfFile = fs.readFileSync(filePath)
+        pdfParse(pdfFile).then((data) => {
             resolve(getStringArray(data.text))
         })
     }
@@ -39,9 +38,9 @@ function getRawTextDataOfPDF(filePath){
 /**
  * 
  * @param {string} rawTextData Take Raw Text Data
- * @returns {Array<string>} Return String Array
+ * @returns {Array<string>} Return String Array 
  */
-function getStringArray(rawTextData){
+function getStringArray(rawTextData) {
     let stringArray = rawTextData.split(/\r?\n/);
     return stringArray
 }
