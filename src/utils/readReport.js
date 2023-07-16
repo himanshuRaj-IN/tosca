@@ -1,5 +1,8 @@
 import fs from 'fs'
 import path from 'path'
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const pdfParse = require('pdf-parse')
 
 /**
  * Get The Path of the Report File
@@ -16,5 +19,31 @@ function getFilePath() {
     )
 }
 
+/**
+ * 
+ * @param {string} filePath take file path
+ * @returns {Array<string>} Array of String of Content
+ */
 
-export { getFilePath }
+function getRawTextDataOfPDF(filePath){
+    return new Promise((resolve, reject) => {
+
+        const pdfFile  = fs.readFileSync(filePath)
+        pdfParse(pdfFile).then((data)=>{  
+            resolve(getStringArray(data.text))
+        })
+    }
+    )
+}
+
+/**
+ * 
+ * @param {string} rawTextData Take Raw Text Data
+ * @returns {Array<string>} Return String Array
+ */
+function getStringArray(rawTextData){
+    let stringArray = rawTextData.split(/\r?\n/);
+    return stringArray
+}
+
+export { getFilePath, getRawTextDataOfPDF }

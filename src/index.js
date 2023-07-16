@@ -6,7 +6,7 @@
 const ExecutionListName = 'EXecutionlist1'
 
 /******** Importing the Dependency ********/
-import { getFilePath } from "./utils/readReport.js"
+import { getFilePath, getRawTextDataOfPDF } from "./utils/readReport.js"
 
 
 /**
@@ -17,8 +17,10 @@ import { getFilePath } from "./utils/readReport.js"
 async function splitTestReport(ExecutionListName){
 
     const  filePath  =  await getFilePath()
+    const  rawTextData = await getRawTextDataOfPDF(filePath)
 
-    console.log("Splitting Sucessfully !!!!" + filePath)    
+    console.log(rawTextData)
+    console.log("Splitting Sucessfully !!!!")    
 }
 
 /******** Calling splitTEST Report  *******/
