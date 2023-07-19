@@ -11,9 +11,12 @@ const pdfParse = require('pdf-parse')
 function getFilePath() {
     return new Promise((resolve, reject) => {
 
-        fs.readdir('../CIIProject/pick', (err, files) => {
+        fs.readdir('./CIIProject/pick/', (err, files) => {
             const __dirname = path.resolve();
-            resolve(`${__dirname}\\pick\\${files[0]}`)
+            // resolve(`${__dirname}\\pick\\${files[0]}`)
+            // console.log(__dirname)
+            // resolve("Path Resolved")
+            resolve('C:/Users/2113487/Desktop/Skill Up/Workspace-03/CIIProject/pick/DemoWebShop.pdf')
         })
     }
     )

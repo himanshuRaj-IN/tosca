@@ -5,3 +5,5 @@ export default class TestCase{
         this.end = end
     }
 }
+
+export {TestCase}
