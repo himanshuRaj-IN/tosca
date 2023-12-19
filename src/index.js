@@ -16,13 +16,16 @@ import { splitReport } from "./utils/splitReport.js"
  */
 
 async function splitTestReport(ExecutionListName){
-
-    const  filePath  =  await getFilePath()
-    const  rawTextData = await getRawTextDataOfPDF(filePath)
+    
+    const  filePath       = await getFilePath()
+    console.log("Reading Test Report File Sucessfull .................!")
+    const  rawTextData    = await getRawTextDataOfPDF(filePath)
+    console.log("Extract Raw Data form Report Sucessfull .............!")
     const  testCaseDetail = await getTestCaseDetail(rawTextData, ExecutionListName)
-    const msg  = await splitReport(filePath, testCaseDetail)
-    console.log(msg)
-    console.log("Splitting Sucessfully !!!!")    
+    console.log(testCaseDetail)
+    console.log("Extracting test case details form the raw textData...!")
+    const  msg            = await splitReport(filePath, testCaseDetail)
+    console.log("Splitting Sucessfully................................!")    
 }
 
 /******** Calling splitTEST Report  *******/

@@ -16,6 +16,7 @@ function getFilePath() {
             // resolve(`${__dirname}\\pick\\${files[0]}`)
             // console.log(__dirname)
             // resolve("Path Resolved")
+            
             resolve('C:/Users/2113487/Desktop/Skill Up/Workspace-03/CIIProject/pick/DemoWebShop.pdf')
         })
     }
